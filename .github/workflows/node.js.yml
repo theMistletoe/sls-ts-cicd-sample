@@ -24,6 +24,18 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install -g serverless
+#     - run: npm install -g serverless
     - run: npm ci
-    - run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
+    - name: Serverless
+      # You may pin to the exact commit or the version.
+      # uses: serverless/github-action@8f96a6db886d4ce30c6063dd9919a8a1a4a6d9cf
+      uses: serverless/github-action@v1.53.0
+      with:
+        args: deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY }}
+        SERVERLESS_ACCESS_KEY: ${{ secrets.AWS_SECRET }}
+        # or if using AWS credentials directly
+        # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#     - run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
