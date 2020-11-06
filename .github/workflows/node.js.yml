@@ -26,4 +26,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install -g serverless
     - run: npm ci
-    - run: serverless config credentials --provider aws --key 1234 --secret 5678
+    - run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
