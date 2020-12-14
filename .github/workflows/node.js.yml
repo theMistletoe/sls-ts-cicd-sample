@@ -31,6 +31,9 @@ jobs:
 #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - run: aws --version
+    - run: yarn global add typescript
+    - run: tsc -v
+    - run: jq --version
 
     - name: ls S3
       env:
