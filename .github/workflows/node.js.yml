@@ -48,4 +48,4 @@ jobs:
     - run: serverless -v
     - run: npm ci
     - run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
-    - run: serverless deploy
+    - run: SLS_DEBUG=* serverless deploy
