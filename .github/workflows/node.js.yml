@@ -31,7 +31,7 @@ jobs:
 #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - run: aws --version
-    - run: yarn global add typescript
+    - run: npm install -g typescript serverless
     - run: tsc -v
     - run: jq --version
 
@@ -44,7 +44,6 @@ jobs:
 
     - run: make -v
 #     - run: docker run --rm -it amazon/aws-cli --version
-    - run: npm install -g serverless
     - run: serverless -v
     - run: npm ci
     - run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
