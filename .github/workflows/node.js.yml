@@ -34,7 +34,7 @@ jobs:
     - run: npm install -g typescript serverless
     - run: tsc -v
     - run: jq --version
-    - run: cat package.json | jq '.devDependencies' | jq -r
+    - run: cat package.json | jq -r '.devDependencies'
 
     - name: ls S3
       env:
