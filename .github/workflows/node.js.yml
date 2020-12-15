@@ -44,7 +44,7 @@ jobs:
 
     - run: make -v
 #     - run: docker run --rm -it amazon/aws-cli --version
-    - run: npm install -g serverless
+    - run: yarn add -g serverless
     - run: npm ci
     - run: serverless config credentials --provider aws --key ${{ secrets.AWS_KEY }} --secret ${{ secrets.AWS_SECRET }}
     - run: serverless deploy
