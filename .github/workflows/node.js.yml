@@ -34,6 +34,7 @@ jobs:
     - run: npm install -g typescript serverless
     - run: tsc -v
     - run: jq --version
+    - run: echo '{"SecretString": "xxxxx"}' | jq '.SecretString' | jq -r
 
     - name: ls S3
       env:
